@@ -11,7 +11,7 @@ function LeadForm({ addLead, leadToEdit }) {
 
   const formRef = useRef(null);
 
-  // 🎬 Animation (scale-in bounce effect, no fade)
+  // Animation
   useEffect(() => {
     gsap.fromTo(
       formRef.current,
@@ -20,7 +20,7 @@ function LeadForm({ addLead, leadToEdit }) {
     );
   }, [leadToEdit]);
 
-  // 📝 Load edit data into form
+  // edit mode
   useEffect(() => {
     if (leadToEdit) {
       setFormData(leadToEdit);
@@ -59,7 +59,7 @@ function LeadForm({ addLead, leadToEdit }) {
       addLead(formData);
       setFormData({ name: "", email: "", phone: "", notes: "" });
 
-      // 🎉 Success animation (green border glow)
+      // Animation
       gsap.fromTo(
         formRef.current,
         { boxShadow: "0 0 0px rgba(0,255,0,0)" },
